@@ -101,8 +101,8 @@ async function processEvent(event, { config, cache }) {
         event.properties = {};
     }
     
-    if (!event.properties['$dialog']){
-      return event
+    if (!event.properties['$llm_input'] || !event.properties['$llm_output']) {
+      return event;
     }
 
     if (
