@@ -133,10 +133,11 @@ async function processEvent(event, { config, cache }) {
       "llm_input": llm_input,
       "llm_output": llm_output
     };
+  
     const res = await makePostRequest(fullUrl, task);
 
     for (const key in res) {
-      if (res[key] > 0) {
+      if (res[key] !== "") {
         event.properties[key] = res[key];
       }
     }
